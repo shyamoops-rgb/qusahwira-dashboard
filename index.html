@@ -76,7 +76,7 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
   </div>
   <div class="header-right">
     <div>Period: <strong>17 Mar 2026 &ndash; 01 Jul 2026</strong></div>
-    <div>Generated: <strong>02 Jul 2026 13:14</strong></div>
+    <div>Generated: <strong>02 Jul 2026 16:08</strong></div>
     <button class="btn-refresh" onclick="location.reload()">&#8635; Refresh</button>
   </div>
 </div>
@@ -151,10 +151,14 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
       </tbody>
     </table>
     <div class="mini-kpis">
-      <div class="mini-kpi mk-orange"><div class="ml">CPECC Labour</div><div class="mv">10</div></div>
-      <div class="mini-kpi mk-teal"><div class="ml">Avg Prod/Day</div><div class="mv">27.15 in/day</div></div>
-      <div class="mini-kpi mk-red"><div class="ml">Labour Cost</div><div class="mv">AED 60,627</div></div>
-      <div class="mini-kpi mk-purple"><div class="ml">Purchases</div><div class="mv">AED 37,133</div></div>
+      <div class="mini-kpi mk-orange" onclick="openMini('emp')" style="cursor:pointer">
+        <div class="ml">CPECC Labour &#128070;</div><div class="mv">10</div></div>
+      <div class="mini-kpi mk-teal" onclick="openMini('avgprod')" style="cursor:pointer">
+        <div class="ml">Avg Prod/Day &#128070;</div><div class="mv">27.15 in/day</div></div>
+      <div class="mini-kpi mk-red" onclick="openMini('labour')" style="cursor:pointer">
+        <div class="ml">Labour Cost &#128070;</div><div class="mv">AED 60,627</div></div>
+      <div class="mini-kpi mk-purple" onclick="openMini('purch')" style="cursor:pointer">
+        <div class="ml">Purchases &#128070;</div><div class="mv">AED 50,510</div></div>
     </div>
   </div>
 </div>
@@ -285,12 +289,26 @@ function openModal(type) {
 function closeModal(type) {
   document.getElementById(type==='joints'?'jointsModal':'inchdiaModal').classList.remove('open');
 }
+function openMini(id) {
+  document.getElementById('mini-' + id).classList.add('open');
+}
+function closeMini(id) {
+  document.getElementById('mini-' + id).classList.remove('open');
+}
 function showTab(prefix, tab) {
   document.querySelectorAll(`[id^="${prefix}-"]`).forEach(el=>el.classList.remove('active'));
   document.getElementById(`${prefix}-${tab}`).classList.add('active');
   const modal = document.getElementById(`${prefix}-${tab}`).closest('.modal');
   modal.querySelectorAll('.modal-tab').forEach((btn,i)=>{
     btn.classList.toggle('active', (tab==='lam'&&i===0)||(tab==='ad'&&i===1));
+  });
+}
+function showPurchTab(tab) {
+  ['cat','mon'].forEach(t => {
+    document.getElementById('purch-'+t).style.display = t===tab ? 'block' : 'none';
+  });
+  document.querySelectorAll('#mini-purch .modal-tab').forEach((btn,i)=>{
+    btn.classList.toggle('active', (tab==='cat'&&i===0)||(tab==='mon'&&i===1));
   });
 }
 document.querySelectorAll('.modal-overlay').forEach(m=>
@@ -300,5 +318,80 @@ document.addEventListener('keydown', e=>{
   if(e.key==='Escape') document.querySelectorAll('.modal-overlay').forEach(m=>m.classList.remove('open'));
 });
 </script>
+
+<!-- EMPLOYEE POPUP -->
+<div class="modal-overlay" id="mini-emp">
+  <div class="modal" style="min-width:620px">
+    <span class="modal-close" onclick="closeMini('emp')">&times;</span>
+    <h2>&#128104; CPECC Labour — Employee List</h2>
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Designation</th><th style="text-align:right">Monthly (AED)</th><th>Project Start</th></tr></thead>
+      <tbody><tr><td>T-317</td><td>Potharla Gangaram P</td><td>Bonder</td><td style='text-align:right'>1,771.9</td><td>01 Dec 2025</td></tr><tr><td>T-339</td><td>Rahul Gireesh</td><td>Foreman</td><td style='text-align:right'>1,450.0</td><td>01 Dec 2025</td></tr><tr><td>T-340</td><td>Sellamuthu Ravichandran</td><td>Bonder</td><td style='text-align:right'>2,015.0</td><td>01 Dec 2025</td></tr><tr><td>T-416</td><td>Vinod Penta</td><td>Bonder</td><td style='text-align:right'>1,690.0</td><td>01 Dec 2025</td></tr><tr><td>T-429</td><td>Govind Rajbhar</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr><tr><td>T-431</td><td>Rajbhavan Yadav</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr><tr><td>T-441</td><td>Bijay Sada</td><td>Bonder</td><td style='text-align:right'>1,412.5</td><td>01 Dec 2025</td></tr><tr><td>T-443</td><td>Amal Kottoor Anil</td><td>QC</td><td style='text-align:right'>3,000.0</td><td>01 Dec 2025</td></tr><tr><td>T-445</td><td>Rajan Yadav</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr><tr><td>T-450</td><td>Ajimsha Koovalathara</td><td>Document Controller</td><td style='text-align:right'>2,500.0</td><td>09 Jun 2026</td></tr>
+        <tr class="total-row"><td colspan="3">TOTAL</td>
+          <td style="text-align:right">19,164.4</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- AVG PROD/DAY POPUP -->
+<div class="modal-overlay" id="mini-avgprod">
+  <div class="modal">
+    <span class="modal-close" onclick="closeMini('avgprod')">&times;</span>
+    <h2>&#9889; Avg Production / Day — Monthly</h2>
+    <table>
+      <thead><tr><th>Month</th><th style="text-align:right">Inch-Dia (Lam)</th><th style="text-align:center">Working Days</th><th style="text-align:right">Avg / Day</th></tr></thead>
+      <tbody><tr><td>Mar-26</td><td style='text-align:right'>0.0</td><td style='text-align:center'>9</td><td style='text-align:right'>0.0</td></tr><tr><td>Apr-26</td><td style='text-align:right'>592.0</td><td style='text-align:center'>26</td><td style='text-align:right'>22.77</td></tr><tr><td>May-26</td><td style='text-align:right'>868.0</td><td style='text-align:center'>23</td><td style='text-align:right'>37.74</td></tr><tr><td>Jun-26</td><td style='text-align:right'>665.0</td><td style='text-align:center'>25</td><td style='text-align:right'>26.6</td></tr><tr><td>Jul-26</td><td style='text-align:right'>32.0</td><td style='text-align:center'>1</td><td style='text-align:right'>32.0</td></tr>
+        <tr class="total-row"><td>TOTAL</td>
+          <td style="text-align:right">2,157.0</td>
+          <td style="text-align:center">84</td>
+          <td style="text-align:right">25.68</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- LABOUR COST POPUP -->
+<div class="modal-overlay" id="mini-labour">
+  <div class="modal">
+    <span class="modal-close" onclick="closeMini('labour')">&times;</span>
+    <h2>&#128176; Labour Cost — Monthly Breakdown</h2>
+    <p style="font-size:12px;color:#7c85a8;margin-bottom:12px">10 CPECC employees &middot; prorated from project start (17 Mar 2026)</p>
+    <table>
+      <thead><tr><th>Month</th><th style="text-align:right">Labour Cost (AED)</th></tr></thead>
+      <tbody><tr><td>Mar-26</td><td style='text-align:right'>8,063.4</td></tr><tr><td>Apr-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>May-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>Jun-26</td><td style='text-align:right'>18,497.7</td></tr><tr><td>Jul-26</td><td style='text-align:right'>737.1</td></tr>
+        <tr class="total-row"><td>TOTAL</td>
+          <td style="text-align:right">60,627.0</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- PURCHASES POPUP -->
+<div class="modal-overlay" id="mini-purch">
+  <div class="modal" style="max-width:720px;min-width:560px">
+    <span class="modal-close" onclick="closeMini('purch')">&times;</span>
+    <h2>&#128722; Purchases Breakdown</h2>
+    <div class="modal-tabs">
+      <div class="modal-tab active" onclick="showPurchTab('cat')">By Category</div>
+      <div class="modal-tab" onclick="showPurchTab('mon')">By Month</div>
+    </div>
+    <div id="purch-cat">
+      <table>
+        <thead><tr><th>Category</th><th style="text-align:right">Amount (AED)</th></tr></thead>
+        <tbody><tr><td>Consumables</td><td style='text-align:right'>10,615.00</td></tr><tr><td>Tools</td><td style='text-align:right'>10,507.00</td></tr><tr><td>Machinery (30% of full cost)</td><td style='text-align:right'>13,200.00</td></tr><tr><td>Petrol / Diesel</td><td style='text-align:right'>7,135.12</td></tr><tr><td>Other</td><td style='text-align:right'>9,052.93</td></tr>
+          <tr class="total-row"><td>TOTAL</td>
+            <td style="text-align:right">50,510.05</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="purch-mon" style="display:none;overflow-x:auto">
+      <table style="min-width:560px">
+        <thead><tr><th>Month</th><th style="text-align:right">Consumables</th><th style="text-align:right">Tools</th><th style="text-align:right">Machinery</th><th style="text-align:right">Petrol</th><th style="text-align:right">Other</th><th style="text-align:right">Total</th></tr></thead>
+        <tbody><tr><td>Dec-25</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>718.9</td><td style='text-align:right'>658.5</td><td style='text-align:right'><strong>1,377.4</strong></td></tr><tr><td>Jan-26</td><td style='text-align:right'>25.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,065.8</td><td style='text-align:right'>1,330.5</td><td style='text-align:right'><strong>2,421.3</strong></td></tr><tr><td>Feb-26</td><td style='text-align:right'>5,999.0</td><td style='text-align:right'>85.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,732.5</td><td style='text-align:right'>1,761.8</td><td style='text-align:right'><strong>9,578.3</strong></td></tr><tr><td>Mar-26</td><td style='text-align:right'>3,421.0</td><td style='text-align:right'>3,790.0</td><td style='text-align:right'>13,200.0</td><td style='text-align:right'>1,209.0</td><td style='text-align:right'>1,637.8</td><td style='text-align:right'><strong>23,257.7</strong></td></tr><tr><td>Apr-26</td><td style='text-align:right'>1,170.0</td><td style='text-align:right'>4,332.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,699.4</td><td style='text-align:right'>2,934.4</td><td style='text-align:right'><strong>10,135.8</strong></td></tr><tr><td>May-26</td><td style='text-align:right'>0.0</td><td style='text-align:right'>2,300.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>709.5</td><td style='text-align:right'>730.0</td><td style='text-align:right'><strong>3,739.5</strong></td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
 </body>
 </html>
