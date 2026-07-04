@@ -76,7 +76,7 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
   </div>
   <div class="header-right">
     <div>Period: <strong>17 Mar 2026 &ndash; 02 Jul 2026</strong></div>
-    <div>Generated: <strong>04 Jul 2026 10:45</strong></div>
+    <div>Generated: <strong>04 Jul 2026 10:56</strong></div>
     <button class="btn-refresh" onclick="location.reload()">&#8635; Refresh</button>
   </div>
 </div>
@@ -155,7 +155,7 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
         <div class="ml">Team &#128070;</div><div class="mv">10 (2S+8L)</div></div>
       <div class="mini-kpi mk-teal" onclick="openMini('avgprod')" style="cursor:pointer">
         <div class="ml">Avg Prod/Day &#128070;</div><div class="mv">30.04 in/day</div></div>
-      <div class="mini-kpi mk-red" onclick="openMini('labour')" style="cursor:pointer">
+      <div class="mini-kpi mk-red" onclick="openMini('staff')" style="cursor:pointer">
         <div class="ml">Staff Cost &#128070;</div><div class="mv">AED 11,256</div></div>
       <div class="mini-kpi mk-purple" onclick="openMini('labour')" style="cursor:pointer">
         <div class="ml">Labour Cost &#128070;</div><div class="mv">AED 42,044</div></div>
@@ -361,17 +361,49 @@ document.addEventListener('keydown', e=>{
   </div>
 </div>
 
-<!-- LABOUR COST POPUP -->
+<!-- STAFF COST POPUP (QC / Engineer / Document Controller) -->
+<div class="modal-overlay" id="mini-staff">
+  <div class="modal" style="max-width:680px;min-width:520px">
+    <span class="modal-close" onclick="closeMini('staff')">&times;</span>
+    <h2>&#128203; Staff Cost — QC &amp; Professional</h2>
+    <p style="font-size:12px;color:#7c85a8;margin-bottom:12px">2 staff &middot; QC, Engineer, Document Controller &middot; prorated from project start (17 Mar 2026)</p>
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Designation</th><th style="text-align:right">Monthly (AED)</th><th>Start</th></tr></thead>
+      <tbody><tr><td>T-443</td><td>Amal Kottoor Anil</td><td>QC</td><td style='text-align:right'>3,000.0</td><td>01 Dec 2025</td></tr><tr><td>T-450</td><td>Ajimsha Koovalathara</td><td>Document Controller</td><td style='text-align:right'>2,500.0</td><td>09 Jun 2026</td></tr>
+        <tr class="total-row"><td colspan="3">TOTAL MONTHLY BASE</td>
+          <td style="text-align:right">5,500.0</td><td></td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;font-size:13px;color:#94a3b8">Monthly Charged Cost (Prorated)</h3>
+    <table>
+      <thead><tr><th>Month</th><th style="text-align:right">Staff Cost (AED)</th></tr></thead>
+      <tbody><tr><td>Apr-26</td><td style='text-align:right'>3,000.0</td></tr><tr><td>May-26</td><td style='text-align:right'>3,000.0</td></tr><tr><td>Jun-26</td><td style='text-align:right'>4,833.3</td></tr><tr><td>Jul-26</td><td style='text-align:right'>423.1</td></tr>
+        <tr class="total-row"><td>TOTAL</td>
+          <td style="text-align:right">11,256.4</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- LABOUR COST POPUP (Bonders / Foreman / Helpers) -->
 <div class="modal-overlay" id="mini-labour">
-  <div class="modal">
+  <div class="modal" style="max-width:680px;min-width:520px">
     <span class="modal-close" onclick="closeMini('labour')">&times;</span>
-    <h2>&#128176; Labour Cost — Monthly Breakdown</h2>
-    <p style="font-size:12px;color:#7c85a8;margin-bottom:12px">10 CPECC employees &middot; prorated from project start (17 Mar 2026)</p>
+    <h2>&#9881;&#65039; Labour Cost — Site Workers</h2>
+    <p style="font-size:12px;color:#7c85a8;margin-bottom:12px">8 workers &middot; Bonders, Foreman, Fitters, Helpers &middot; prorated from project start (17 Mar 2026)</p>
+    <table>
+      <thead><tr><th>ID</th><th>Name</th><th>Designation</th><th style="text-align:right">Monthly (AED)</th><th>Start</th></tr></thead>
+      <tbody><tr><td>T-317</td><td>Potharla Gangaram P</td><td>Bonder</td><td style='text-align:right'>1,771.9</td><td>01 Dec 2025</td></tr><tr><td>T-339</td><td>Rahul Gireesh</td><td>Foreman</td><td style='text-align:right'>1,450.0</td><td>01 Dec 2025</td></tr><tr><td>T-340</td><td>Sellamuthu Ravichandran</td><td>Bonder</td><td style='text-align:right'>2,015.0</td><td>01 Dec 2025</td></tr><tr><td>T-416</td><td>Vinod Penta</td><td>Bonder</td><td style='text-align:right'>1,690.0</td><td>01 Dec 2025</td></tr><tr><td>T-429</td><td>Govind Rajbhar</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr><tr><td>T-431</td><td>Rajbhavan Yadav</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr><tr><td>T-441</td><td>Bijay Sada</td><td>Bonder</td><td style='text-align:right'>1,412.5</td><td>01 Dec 2025</td></tr><tr><td>T-445</td><td>Rajan Yadav</td><td>Bonder</td><td style='text-align:right'>1,775.0</td><td>01 Dec 2025</td></tr>
+        <tr class="total-row"><td colspan="3">TOTAL MONTHLY BASE</td>
+          <td style="text-align:right">13,664.4</td><td></td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;font-size:13px;color:#94a3b8">Monthly Charged Cost (Prorated)</h3>
     <table>
       <thead><tr><th>Month</th><th style="text-align:right">Labour Cost (AED)</th></tr></thead>
-      <tbody><tr><td>Apr-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>May-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>Jun-26</td><td style='text-align:right'>18,497.7</td></tr><tr><td>Jul-26</td><td style='text-align:right'>1,474.2</td></tr>
+      <tbody><tr><td>Apr-26</td><td style='text-align:right'>13,664.4</td></tr><tr><td>May-26</td><td style='text-align:right'>13,664.4</td></tr><tr><td>Jun-26</td><td style='text-align:right'>13,664.4</td></tr><tr><td>Jul-26</td><td style='text-align:right'>1,051.1</td></tr>
         <tr class="total-row"><td>TOTAL</td>
-          <td style="text-align:right">53,300.7</td></tr>
+          <td style="text-align:right">42,044.2</td></tr>
       </tbody>
     </table>
   </div>
