@@ -76,7 +76,7 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
   </div>
   <div class="header-right">
     <div>Period: <strong>17 Mar 2026 &ndash; 02 Jul 2026</strong></div>
-    <div>Generated: <strong>03 Jul 2026 13:31</strong></div>
+    <div>Generated: <strong>04 Jul 2026 10:45</strong></div>
     <button class="btn-refresh" onclick="location.reload()">&#8635; Refresh</button>
   </div>
 </div>
@@ -111,7 +111,7 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
   </div>
   <div class="kpi kpi-red">
     <div class="label">&#128176; Revenue (AED)</div>
-    <div class="value">207,023</div>
+    <div class="value">206,050</div>
     <div class="sub">Lamination + Testing</div>
   </div>
   <div class="kpi kpi-purple">
@@ -124,15 +124,15 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
 <div class="summary-row">
   <div class="sumcard sum-rev">
     <div class="label">Total Revenue</div>
-    <div class="value">AED 207,022.8</div>
+    <div class="value">AED 206,049.7</div>
   </div>
   <div class="sumcard sum-cost">
     <div class="label">Total Cost</div>
-    <div class="value">AED 98,497.1</div>
+    <div class="value">AED 139,939.2</div>
   </div>
   <div class="sumcard sum-gp">
     <div class="label">Gross Profit</div>
-    <div class="value">AED 108,525.7 <span class="pct">&middot; 52.4%</span></div>
+    <div class="value">AED 66,110.5 <span class="pct">&middot; 32.1%</span></div>
   </div>
 </div>
 
@@ -146,19 +146,25 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
     <table>
       <thead><tr><th>Month</th><th>Revenue — Lamination 90% (AED)</th></tr></thead>
       <tbody>
-        <tr><td>Mar-26</td><td>973.1</td></tr><tr><td>Apr-26</td><td>50,438.0</td></tr><tr><td>May-26</td><td>92,442.6</td></tr><tr><td>Jun-26</td><td>56,357.5</td></tr><tr><td>Jul-26</td><td>6,811.6</td></tr>
-        <tr class="total-row"><td>TOTAL</td><td>207,022.8</td></tr>
+        <tr><td>Apr-26</td><td>50,438.0</td></tr><tr><td>May-26</td><td>92,442.6</td></tr><tr><td>Jun-26</td><td>56,357.5</td></tr><tr><td>Jul-26</td><td>6,811.6</td></tr>
+        <tr class="total-row"><td>TOTAL</td><td>206,049.7</td></tr>
       </tbody>
     </table>
     <div class="mini-kpis">
       <div class="mini-kpi mk-orange" onclick="openMini('emp')" style="cursor:pointer">
-        <div class="ml">CPECC Labour &#128070;</div><div class="mv">10</div></div>
+        <div class="ml">Team &#128070;</div><div class="mv">10 (2S+8L)</div></div>
       <div class="mini-kpi mk-teal" onclick="openMini('avgprod')" style="cursor:pointer">
         <div class="ml">Avg Prod/Day &#128070;</div><div class="mv">30.04 in/day</div></div>
       <div class="mini-kpi mk-red" onclick="openMini('labour')" style="cursor:pointer">
-        <div class="ml">Labour Cost &#128070;</div><div class="mv">AED 61,364</div></div>
-      <div class="mini-kpi mk-purple" onclick="openMini('purch')" style="cursor:pointer">
-        <div class="ml">Purchases &#128070;</div><div class="mv">AED 50,510</div></div>
+        <div class="ml">Staff Cost &#128070;</div><div class="mv">AED 11,256</div></div>
+      <div class="mini-kpi mk-purple" onclick="openMini('labour')" style="cursor:pointer">
+        <div class="ml">Labour Cost &#128070;</div><div class="mv">AED 42,044</div></div>
+    </div>
+    <div class="mini-kpis" style="margin-top:6px">
+      <div class="mini-kpi mk-orange" style="grid-column:span 2">
+        <div class="ml">Total People Cost</div><div class="mv">AED 53,301</div></div>
+      <div class="mini-kpi mk-purple" onclick="openMini('purch')" style="cursor:pointer;grid-column:span 2">
+        <div class="ml">Purchases &#128070;</div><div class="mv">AED 86,639</div></div>
     </div>
   </div>
 </div>
@@ -171,14 +177,15 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
   <div class="chart-card">
     <h3>&#128204; GP Summary</h3>
     <table>
-      <thead><tr><th>Month</th><th>Revenue (AED)</th><th>Labour Cost (AED)</th><th>Purchase Cost</th><th>GP (AED)</th><th>GP%</th></tr></thead>
+      <thead><tr><th>Month</th><th>Revenue (AED)</th><th>Staff Cost</th><th>Labour Cost</th><th>Total People</th><th>Purchases</th><th>GP (AED)</th><th>GP%</th></tr></thead>
       <tbody>
-        <tr><td>Mar-26</td><td>973.1</td><td>8,063.4</td><td>23,257.7</td><td class="gp-neg">-30,348.0</td><td class="gp-neg">-3118.7%</td></tr><tr><td>Apr-26</td><td>50,438.0</td><td>16,664.4</td><td>10,135.8</td><td class="gp-pos">23,637.8</td><td class="gp-pos">46.9%</td></tr><tr><td>May-26</td><td>92,442.6</td><td>16,664.4</td><td>3,739.5</td><td class="gp-pos">72,038.7</td><td class="gp-pos">77.9%</td></tr><tr><td>Jun-26</td><td>56,357.5</td><td>18,497.7</td><td>0.0</td><td class="gp-pos">37,859.8</td><td class="gp-pos">67.2%</td></tr><tr><td>Jul-26</td><td>6,811.6</td><td>1,474.2</td><td>0.0</td><td class="gp-pos">5,337.4</td><td class="gp-pos">78.4%</td></tr>
+        <tr><td>Apr-26</td><td>50,438.0</td><td>3,000.0</td><td>13,664.4</td><td>16,664.4</td><td>21,207.9</td><td class="gp-pos">12,565.7</td><td class="gp-pos">24.9%</td></tr><tr><td>May-26</td><td>92,442.6</td><td>3,000.0</td><td>13,664.4</td><td>16,664.4</td><td>38,869.7</td><td class="gp-pos">36,908.5</td><td class="gp-pos">39.9%</td></tr><tr><td>Jun-26</td><td>56,357.5</td><td>4,833.3</td><td>13,664.4</td><td>18,497.7</td><td>23,696.9</td><td class="gp-pos">14,162.9</td><td class="gp-pos">25.1%</td></tr><tr><td>Jul-26</td><td>6,811.6</td><td>423.1</td><td>1,051.1</td><td>1,474.2</td><td>2,864.1</td><td class="gp-pos">2,473.3</td><td class="gp-pos">36.3%</td></tr>
         <tr class="total-row">
-          <td>TOTAL</td><td>207,022.8</td>
-          <td>61,364.1</td><td>37,133.0</td>
-          <td class="gp-pos">108,525.7</td>
-          <td class="gp-pos">52.4%</td>
+          <td>TOTAL</td><td>206,049.7</td>
+          <td>11,256.4</td><td>42,044.2</td>
+          <td>53,300.7</td><td>86,638.6</td>
+          <td class="gp-pos">66,110.5</td>
+          <td class="gp-pos">32.1%</td>
         </tr>
       </tbody>
     </table>
@@ -224,13 +231,13 @@ tr.total-row td{background:#252840;font-weight:700;color:#e2e8f0}
 </div>
 
 <script>
-const labels   = ["Mar-26", "Apr-26", "May-26", "Jun-26", "Jul-26"];
-const lamRev   = [973.1, 50438.0, 92442.6, 56357.5, 6811.6];
-const testRev  = [0.0, 0.0, 0.0, 0.0, 0.0];
-const gpData   = [-30348.0, 23637.8, 72038.7, 37859.8, 5337.4];
-const revData  = [973.1, 50438.0, 92442.6, 56357.5, 6811.6];
-const labData  = [8063.41, 16664.38, 16664.38, 18497.71, 1474.18];
-const purchData= [23257.71, 10135.8, 3739.51, 0, 0];
+const labels   = ["Apr-26", "May-26", "Jun-26", "Jul-26"];
+const lamRev   = [50438.0, 92442.6, 56357.5, 6811.6];
+const testRev  = [0.0, 0.0, 0.0, 0.0];
+const gpData   = [12565.7, 36908.5, 14162.9, 2473.3];
+const revData  = [50438.0, 92442.6, 56357.5, 6811.6];
+const labData  = [16664.38, 16664.38, 18497.71, 1474.18];
+const purchData= [21207.9, 38869.7, 23696.9, 2864.1];
 
 new Chart(document.getElementById('revenueChart'), {
   type: 'bar',
@@ -344,7 +351,7 @@ document.addEventListener('keydown', e=>{
     <h2>&#9889; Avg Production / Day — Monthly</h2>
     <table>
       <thead><tr><th>Month</th><th style="text-align:right">Inch-Dia (Lam)</th><th style="text-align:center">Working Days</th><th style="text-align:right">Avg / Day</th></tr></thead>
-      <tbody><tr><td>Mar-26</td><td style='text-align:right'>0.0</td><td style='text-align:center'>9</td><td style='text-align:right'>0.0</td></tr><tr><td>Apr-26</td><td style='text-align:right'>592.0</td><td style='text-align:center'>26</td><td style='text-align:right'>22.77</td></tr><tr><td>May-26</td><td style='text-align:right'>988.0</td><td style='text-align:center'>23</td><td style='text-align:right'>42.96</td></tr><tr><td>Jun-26</td><td style='text-align:right'>665.0</td><td style='text-align:center'>25</td><td style='text-align:right'>26.6</td></tr><tr><td>Jul-26</td><td style='text-align:right'>64.0</td><td style='text-align:center'>2</td><td style='text-align:right'>32.0</td></tr>
+      <tbody><tr><td>Apr-26</td><td style='text-align:right'>592.0</td><td style='text-align:center'>26</td><td style='text-align:right'>22.77</td></tr><tr><td>May-26</td><td style='text-align:right'>988.0</td><td style='text-align:center'>23</td><td style='text-align:right'>42.96</td></tr><tr><td>Jun-26</td><td style='text-align:right'>665.0</td><td style='text-align:center'>25</td><td style='text-align:right'>26.6</td></tr><tr><td>Jul-26</td><td style='text-align:right'>64.0</td><td style='text-align:center'>2</td><td style='text-align:right'>32.0</td></tr>
         <tr class="total-row"><td>TOTAL</td>
           <td style="text-align:right">2,309.0</td>
           <td style="text-align:center">85</td>
@@ -362,9 +369,9 @@ document.addEventListener('keydown', e=>{
     <p style="font-size:12px;color:#7c85a8;margin-bottom:12px">10 CPECC employees &middot; prorated from project start (17 Mar 2026)</p>
     <table>
       <thead><tr><th>Month</th><th style="text-align:right">Labour Cost (AED)</th></tr></thead>
-      <tbody><tr><td>Mar-26</td><td style='text-align:right'>8,063.4</td></tr><tr><td>Apr-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>May-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>Jun-26</td><td style='text-align:right'>18,497.7</td></tr><tr><td>Jul-26</td><td style='text-align:right'>1,474.2</td></tr>
+      <tbody><tr><td>Apr-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>May-26</td><td style='text-align:right'>16,664.4</td></tr><tr><td>Jun-26</td><td style='text-align:right'>18,497.7</td></tr><tr><td>Jul-26</td><td style='text-align:right'>1,474.2</td></tr>
         <tr class="total-row"><td>TOTAL</td>
-          <td style="text-align:right">61,364.1</td></tr>
+          <td style="text-align:right">53,300.7</td></tr>
       </tbody>
     </table>
   </div>
@@ -382,16 +389,16 @@ document.addEventListener('keydown', e=>{
     <div id="purch-cat">
       <table>
         <thead><tr><th>Category</th><th style="text-align:right">Amount (AED)</th></tr></thead>
-        <tbody><tr><td>Consumables</td><td style='text-align:right'>10,615.00</td></tr><tr><td>Tools</td><td style='text-align:right'>10,507.00</td></tr><tr><td>Machinery (30% of full cost)</td><td style='text-align:right'>13,200.00</td></tr><tr><td>Petrol / Diesel</td><td style='text-align:right'>7,135.12</td></tr><tr><td>Other</td><td style='text-align:right'>9,052.93</td></tr>
+        <tbody><tr><td>Consumables</td><td style='text-align:right'>13,486.10</td></tr><tr><td>Tools</td><td style='text-align:right'>37,389.00</td></tr><tr><td>Machinery (30% of full cost)</td><td style='text-align:right'>13,200.00</td></tr><tr><td>Petrol / Diesel</td><td style='text-align:right'>11,988.54</td></tr><tr><td>Other</td><td style='text-align:right'>10,574.93</td></tr>
           <tr class="total-row"><td>TOTAL</td>
-            <td style="text-align:right">50,510.05</td></tr>
+            <td style="text-align:right">86,638.57</td></tr>
         </tbody>
       </table>
     </div>
     <div id="purch-mon" style="display:none;overflow-x:auto">
       <table style="min-width:560px">
         <thead><tr><th>Month</th><th style="text-align:right">Consumables</th><th style="text-align:right">Tools</th><th style="text-align:right">Machinery</th><th style="text-align:right">Petrol</th><th style="text-align:right">Other</th><th style="text-align:right">Total</th></tr></thead>
-        <tbody><tr><td>Dec-25</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>718.9</td><td style='text-align:right'>658.5</td><td style='text-align:right'><strong>1,377.4</strong></td></tr><tr><td>Jan-26</td><td style='text-align:right'>25.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,065.8</td><td style='text-align:right'>1,330.5</td><td style='text-align:right'><strong>2,421.3</strong></td></tr><tr><td>Feb-26</td><td style='text-align:right'>5,999.0</td><td style='text-align:right'>85.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,732.5</td><td style='text-align:right'>1,761.8</td><td style='text-align:right'><strong>9,578.3</strong></td></tr><tr><td>Mar-26</td><td style='text-align:right'>3,421.0</td><td style='text-align:right'>3,790.0</td><td style='text-align:right'>13,200.0</td><td style='text-align:right'>1,209.0</td><td style='text-align:right'>1,637.8</td><td style='text-align:right'><strong>23,257.7</strong></td></tr><tr><td>Apr-26</td><td style='text-align:right'>1,170.0</td><td style='text-align:right'>4,332.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>1,699.4</td><td style='text-align:right'>2,934.4</td><td style='text-align:right'><strong>10,135.8</strong></td></tr><tr><td>May-26</td><td style='text-align:right'>0.0</td><td style='text-align:right'>2,300.0</td><td style='text-align:right'>0.0</td><td style='text-align:right'>709.5</td><td style='text-align:right'>730.0</td><td style='text-align:right'><strong>3,739.5</strong></td></tr></tbody>
+        <tbody></tbody>
       </table>
     </div>
   </div>
